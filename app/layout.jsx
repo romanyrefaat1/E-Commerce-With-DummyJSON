@@ -38,7 +38,7 @@ export default async function RootLayout({ children }) {
           className={`
             text-black bg-white antialiased`}
         >
-          <Suspense fallback={<div>Loading...</div>}>
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
               <NuqsAdapter>
           <div className="flex gap-5">
             <CategoriesProvider>
@@ -52,7 +52,7 @@ export default async function RootLayout({ children }) {
             </CategoriesProvider>
           </div>
             </NuqsAdapter>
-            </Suspense>
+            {/* </Suspense> */}
         </body>
       </html>
   );
