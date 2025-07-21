@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import { useQueryState } from "nuqs"
+import { Suspense } from "react";
 
 const CategoriesContext = createContext(null);
 
@@ -41,6 +42,7 @@ export default function CategoriesProvider ({children}) {
     },[categoryName])
 
     return (
+    <Suspense fallback={<div>Loading...</div>}>
         <CategoriesContext.Provider value={{
             categoriesError,
             isCategoriesLoading,
@@ -51,6 +53,7 @@ export default function CategoriesProvider ({children}) {
             categoryName,
             updateCategoryName
         }}>{children}</CategoriesContext.Provider>
+        </Suspense>
     )
 }
 

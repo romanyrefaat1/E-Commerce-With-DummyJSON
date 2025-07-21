@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useQueryState } from "nuqs";
 import { useEffect, useState } from "react";
+import {Suspense} from "react"
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -61,6 +62,7 @@ export default function ProductPage() {
   }
 
   return (
+    <Suspense>
     <div>
       <h2>Product: {productData.title}</h2>
 
@@ -100,5 +102,6 @@ export default function ProductPage() {
 
       <pre style={{ marginTop: "1rem" }}>{JSON.stringify(productData, null, 2)}</pre>
     </div>
+    </Suspense>
   );
 }

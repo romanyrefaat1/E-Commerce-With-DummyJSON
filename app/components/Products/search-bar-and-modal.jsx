@@ -2,6 +2,7 @@
 import { useProducts } from "@/contexts/ProductsContext";
 import { useState, useEffect } from "react";
 import { useQueryState } from "nuqs";
+import { Suspense } from "react";
 
 export default function SearchBarAndModal() {
   const {
@@ -28,6 +29,7 @@ export default function SearchBarAndModal() {
   }, [query]);
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div>
       <input onChange={(e) => setQuery(e.target.value)} value={query} />
       {loadingSearchedProducts ? (
@@ -40,5 +42,6 @@ export default function SearchBarAndModal() {
         JSON.stringify(searchedProducts)
       )}
     </div>
+    </Suspense>
   );
 }
