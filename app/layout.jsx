@@ -5,7 +5,7 @@ import ProductsProvider from "@/contexts/ProductsContext";
 import CategoriesProvider from "@/contexts/CategoriesContext";
 import CartProvider from "@/contexts/CartContext";
 import CheckoutProvider from "@/contexts/CheckouContext";
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 // import {Playfair_Display} from "next/font/google/index"
 
@@ -33,27 +33,22 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-      <html lang="en">
-        <body
-          className={`
-            text-black bg-white antialiased`}
-        >
-          <Suspense fallback={<div>Loading...</div>}>
-              <NuqsAdapter>
-          <div className="flex gap-5">
-            <CategoriesProvider>
-            <ProductsProvider>
-              <CartProvider>
-                <CheckoutProvider>
-            {children}
-            </CheckoutProvider>
-            </CartProvider>
-            </ProductsProvider>
-            </CategoriesProvider>
-          </div>
-            </NuqsAdapter>
-            </Suspense>
-        </body>
-      </html>
+    <html lang="en" data-theme="light">
+      <body className="antialiased">
+        <Suspense fallback={<div>Loading...</div>}>
+          <NuqsAdapter>
+            <div className="flex gap-5">
+              <CategoriesProvider>
+                <ProductsProvider>
+                  <CartProvider>
+                    <CheckoutProvider>{children}</CheckoutProvider>
+                  </CartProvider>
+                </ProductsProvider>
+              </CategoriesProvider>
+            </div>
+          </NuqsAdapter>
+        </Suspense>
+      </body>
+    </html>
   );
 }

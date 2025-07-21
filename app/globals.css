@@ -1,7 +1,13 @@
+/* globals.css - FIXED VERSION */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* @import "tailwindcss"; */
+@plugin "daisyui";
+
+/* Remove or comment out the custom CSS variables and body styles that override daisyUI */
+/* 
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,6 +25,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+*/
 
 .l-container {
   width: 100vw;
