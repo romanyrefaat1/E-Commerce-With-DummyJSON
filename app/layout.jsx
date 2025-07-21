@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import localFont from "next/font/local";
 import "./globals.css";
 import ProductsProvider from "@/contexts/ProductsContext";
@@ -37,8 +38,9 @@ export default async function RootLayout({ children }) {
           className={`
             text-black bg-white antialiased`}
         >
-          <div className="flex gap-5">
+          <Suspense fallback={<div>Loading...</div>}>
               <NuqsAdapter>
+          <div className="flex gap-5">
             <CategoriesProvider>
             <ProductsProvider>
               <CartProvider>
@@ -48,8 +50,9 @@ export default async function RootLayout({ children }) {
             </CartProvider>
             </ProductsProvider>
             </CategoriesProvider>
-            </NuqsAdapter>
           </div>
+            </NuqsAdapter>
+            </Suspense>
         </body>
       </html>
   );
