@@ -1,6 +1,6 @@
 import { UpdateSubscriptionResult, WebhookPayload } from "@/types/api-types";
 import { SubscriptionDetails } from "@/types/api-types";
-import { DatabaseService } from "./db";
+import { DatabaseService } from "../supabase/client";
 
 export async function handleSubscription(
   email: string,
