@@ -14,7 +14,7 @@ export default function ProductItemCard({data}) {
     const isProductInCart = getIsProductInCart(data.id);
     
     const [count, setCount] = useQueryState("count", {
-        defaultValue: productInCart.cart_count ?? 0
+        defaultValue: productInCart?.cart_count ?? 0
     })
 
     return (

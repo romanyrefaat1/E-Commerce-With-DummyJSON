@@ -7,7 +7,7 @@ import { useCategories } from "./CategoriesContext";
 const ProductsContext = createContext(null);
 
 export default function ProductsProvider({ children }) {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

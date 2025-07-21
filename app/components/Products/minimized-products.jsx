@@ -5,8 +5,9 @@ import { useEffect } from "react";
 import SearchBarAndModal from "./search-bar-and-modal";
 import CategoriesCombobox from "./categories-combobox";
 import Link from "next/link"
+import ProductItemCard from "./product-item-card";
 
-export default async function MinimizedProducts () {
+export default function MinimizedProducts () {
     const {products, loading, error} = useProducts(); // length = 15;
 
     useEffect(()=> {
@@ -20,6 +21,8 @@ export default async function MinimizedProducts () {
     if (error) {
         <div>Error: {error}</div>
     }
+
+    console.log("products", products)
 
    return (
     <div>
