@@ -34,7 +34,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased bg-background text-foreground">
         <Suspense fallback={<div>Loading...</div>}>
           <NuqsAdapter>
             <div className="flex gap-5">

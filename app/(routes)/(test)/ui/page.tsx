@@ -1,9 +1,11 @@
+import { Button } from "@/components/ui/button";
+
 export default function TestUIPage() {
-  console.log(1 / 0.93);
+  console.log(1 / 0.97);
   return (
-    <div className="p-4 bg-red-500 w-screen">
+    <div className="p-4 w-screen flex justify-center gap-4 flex-wrap wrap">
       <button
-        className="transition duration-150 btn btn-secondary group hover:scale-[.96] hover:rounded-box
+        className="transition duration-150 btn btn-primary group hover:scale-[.96] hover:rounded-box
       active:scale-[.93]"
       >
         <span
@@ -13,6 +15,11 @@ export default function TestUIPage() {
           Click me
         </span>
       </button>
+      <Button>Buy Now</Button>
+      <Button variant="destructive">Buy Now</Button>
+      <Button variant="outline">Buy Now</Button>
+      <Button variant="ghost">Buy Now</Button>
+      <Button variant="secondary">Buy Now</Button>
       {/* <button className="btn btn-secondary ml-2">Secondary</button> */}
     </div>
   );
