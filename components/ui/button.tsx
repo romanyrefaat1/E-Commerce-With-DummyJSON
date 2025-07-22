@@ -6,16 +6,15 @@ import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium transition-all duration-150 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive group hover:scale-[.97] hover:rounded-md active:scale-[.94] btn",
+  "inline-flex overflow-hidden items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium transition-all duration-150 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive group hover:scale-[.97] hover:rounded-md active:scale-[.94] btn",
   {
     variants: {
       variant: {
         default: "btn-primary",
         destructive: "btn-error",
-        outline:
-          "btn-outline border-1 border-foreground/50 hover:border-foreground/0",
+        outline: "btn- border-1 border-foreground/50 hover:border-foreground/0",
         secondary: "btn-secondary",
-        ghost: "btn-ghost",
+        ghost: "btn-ghost rounded-2xl",
       },
       size: {
         default: "h-9 px-6 py-5 has-[>svg]:px-3",
@@ -50,7 +49,7 @@ function Button({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >
-      <span className="transition duration-150 group-hover:opacity-90 group-hover:scale-[1.0309] group-active:scale-[1.063]">
+      <span className="transition w-fit duration-150 group-hover:opacity-90 group-hover:scale-[1.0309] group-active:scale-[1.063]">
         {children}
       </span>
     </Comp>
@@ -67,21 +66,21 @@ function ButtonAsLink({
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
-    linkProps: LinkProps;
+    linkProps?: LinkProps<any>;
     href: string;
   }) {
   return (
-    <Button
-      asChild
-      className={className}
-      variant={variant}
-      size={size}
-      {...props}
-    >
-      <Link href={href} {...linkProps}>
+    <Link href={href} {...linkProps}>
+      <Button
+        asChild
+        className={className}
+        variant={variant}
+        size={size}
+        {...props}
+      >
         {children}
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   );
 }
 

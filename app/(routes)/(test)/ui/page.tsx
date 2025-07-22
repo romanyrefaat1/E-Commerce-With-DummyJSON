@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 
 export default function TestUIPage() {
-  console.log(1 / 0.97);
   return (
     <div className="p-4 w-screen flex justify-center gap-4 flex-wrap wrap">
       <button

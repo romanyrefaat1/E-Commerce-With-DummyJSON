@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["fakestoreapi.com", "i.pravatar.cc"], // Allow images from fakestoreapi.com
+    domains: [
+      "fakestoreapi.com",
+      "i.pravatar.cc",
+      "img.daisyui.com",
+      "cdn.dummyjson.com",
+    ], // Allow images from fakestoreapi.com
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if

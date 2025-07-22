@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import localFont from "next/font/local";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import ProductsProvider from "@/contexts/ProductsContext";
 import CategoriesProvider from "@/contexts/CategoriesContext";
@@ -7,24 +8,19 @@ import CartProvider from "@/contexts/CartContext";
 import CheckoutProvider from "@/contexts/CheckouContext";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 
-// import {Playfair_Display} from "next/font/google/index"
+// Define your fonts
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
-// const serif = Playfair_Display({
-//   subsets: ['latin'],
-//   variable: "--font-playfair",
-//   weight: ["400", "700"],
-//   display: "swap"
-// });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -34,18 +30,18 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-background text-foreground">
+      <body
+        className={`antialiased bg-background text-foreground ${inter.variable} ${playfair.variable} w-screen`}
+      >
         <Suspense fallback={<div>Loading...</div>}>
           <NuqsAdapter>
-            <div className="flex gap-5">
-              <CategoriesProvider>
-                <ProductsProvider>
-                  <CartProvider>
-                    <CheckoutProvider>{children}</CheckoutProvider>
-                  </CartProvider>
-                </ProductsProvider>
-              </CategoriesProvider>
-            </div>
+            <CategoriesProvider>
+              <ProductsProvider>
+                <CartProvider>
+                  <CheckoutProvider>{children}</CheckoutProvider>
+                </CartProvider>
+              </ProductsProvider>
+            </CategoriesProvider>
           </NuqsAdapter>
         </Suspense>
       </body>

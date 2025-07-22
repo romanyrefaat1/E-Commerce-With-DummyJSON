@@ -22,7 +22,7 @@ export default function CategoriesCombobox() {
 
   return (
     <div>
-      {JSON.stringify(categories)}
+      {/* {JSON.stringify(categories)} */}
 
       <br />
       <br />
