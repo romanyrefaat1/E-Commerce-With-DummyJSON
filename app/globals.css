@@ -6,51 +6,63 @@
 
 /* Custom theme configuration */
 @theme {
-  /* Font families */
-  --font-family-title: var(--font-playfair), serif;
-  --font-family-content: var(--font-inter), sans-serif;
-  --font-family-heading: var(--font-playfair), serif;
+  /* ============================= */
+  /* Font Families                */
+  /* ============================= */
+  --font-family-title: var(--font-playfair), serif; /* Use: font-title */
+  --font-family-content: var(--font-inter), sans-serif; /* Use: font-content */
+  --font-family-heading: var(--font-playfair), serif; /* Use: font-heading */
 
-  /* Border radius - using DaisyUI variables */
-  --radius-lg: var(--rounded-btn);
-  --radius-md: calc(var(--rounded-btn) - 2px);
-  --radius-sm: calc(var(--rounded-btn) - 4px);
+  /* ============================= */
+  /* Border Radius                 */
+  /* ============================= */
+  --radius-lg: var(--rounded-btn); /* Use: rounded-lg */
+  --radius-md: calc(var(--rounded-btn) - 2px); /* Use: rounded-md */
+  --radius-sm: calc(var(--rounded-btn) - 4px); /* Use: rounded-sm */
 
-  /* Colors mapped from DaisyUI */
-  --color-background: hsl(var(--b1));
-  --color-foreground: hsl(var(--bc));
+  /* ============================= */
+  /* Colors                        */
+  /* ============================= */
+  --color-background: hsl(var(--b1)); /* Use: bg-background */
+  --color-foreground: hsl(var(--bc)); /* Use: text-foreground */
 
-  --color-card: hsl(var(--b1));
-  --color-card-foreground: hsl(var(--bc));
+  --color-card: hsl(var(--b1)); /* Use: bg-card */
+  --color-card-foreground: hsl(var(--bc)); /* Use: text-card-foreground */
 
-  --color-popover: hsl(var(--b1));
-  --color-popover-foreground: hsl(var(--bc));
+  --color-popover: hsl(var(--b1)); /* Use: bg-popover */
+  --color-popover-foreground: hsl(var(--bc)); /* Use: text-popover-foreground */
 
-  --color-primary: hsl(var(--p));
-  --color-primary-foreground: hsl(var(--pc));
+  --color-primary: hsl(var(--p)); /* Use: bg-primary or text-primary */
+  --color-primary-foreground: hsl(var(--pc)); /* Use: text-primary-foreground */
 
-  --color-secondary: hsl(var(--s));
-  --color-secondary-foreground: hsl(var(--sc));
+  --color-secondary: hsl(var(--s)); /* Use: bg-secondary */
+  --color-secondary-foreground: hsl(
+    var(--sc)
+  ); /* Use: text-secondary-foreground */
 
-  --color-muted: hsl(var(--b2));
-  --color-muted-foreground: hsl(var(--bc));
+  --color-muted: hsl(var(--b2)); /* Use: bg-muted */
+  --color-muted-foreground: hsl(var(--bc)); /* Use: text-muted-foreground */
 
-  --color-accent: hsl(var(--a));
-  --color-accent-foreground: hsl(var(--ac));
+  --color-accent: hsl(var(--a)); /* Use: bg-accent */
+  --color-accent-foreground: hsl(var(--ac)); /* Use: text-accent-foreground */
 
-  --color-destructive: hsl(var(--er));
-  --color-destructive-foreground: hsl(var(--erc));
+  --color-destructive: hsl(var(--er)); /* Use: bg-destructive */
+  --color-destructive-foreground: hsl(
+    var(--erc)
+  ); /* Use: text-destructive-foreground */
 
-  --color-border: hsl(var(--b3));
-  --color-input: hsl(var(--b3));
-  --color-ring: hsl(var(--p));
+  --color-border: hsl(var(--b3)); /* Use: border-border */
+  --color-input: hsl(var(--b3)); /* Use: bg-input */
+  --color-ring: hsl(var(--p)); /* Use: ring-ring */
 
-  /* Chart colors */
-  --color-chart-1: hsl(var(--in));
-  --color-chart-2: hsl(var(--su));
-  --color-chart-3: hsl(var(--wa));
-  --color-chart-4: hsl(var(--er));
-  --color-chart-5: hsl(var(--s));
+  /* ============================= */
+  /* Chart Colors                  */
+  /* ============================= */
+  --color-chart-1: hsl(var(--in)); /* Use: bg-chart-1 */
+  --color-chart-2: hsl(var(--su)); /* Use: bg-chart-2 */
+  --color-chart-3: hsl(var(--wa)); /* Use: bg-chart-3 */
+  --color-chart-4: hsl(var(--er)); /* Use: bg-chart-4 */
+  --color-chart-5: hsl(var(--s)); /* Use: bg-chart-5 */
 }
 
 /*
