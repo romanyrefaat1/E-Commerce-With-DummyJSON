@@ -63,21 +63,7 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("daisyui"),
-    // Plugin to automatically apply fonts to heading elements
-    function ({ addBase }) {
-      addBase({
-        "h1, h2, h3, h4, h5, h6": {
-          fontFamily: "var(--font-playfair), serif",
-        },
-        "body, p, div, span, a, li, td, th": {
-          fontFamily: "var(--font-inter), sans-serif",
-        },
-      });
-    },
-  ],
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
   daisyui: {
     themes: ["corporate"],
     // Optional:

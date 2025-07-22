@@ -27,6 +27,26 @@ body {
 }
 */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+body,
+p,
+div,
+span,
+a,
+li,
+td,
+th {
+  font-family: var(--font-inter), sans-serif;
+}
+
 .l-container {
   width: 100vw;
   height: 100vh;
