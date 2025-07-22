@@ -12,7 +12,6 @@
     "@supabase/supabase-js": "^2.52.0",
     "@tailwindcss/postcss": "^4.1.11",
     "autoprefixer": "^10.4.21",
-    "daisyui": "^4.12.24",
     "dodopayments": "^1.42.0",
     "install": "^0.13.0",
     "lucide-react": "^0.525.0",
@@ -30,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^20.19.9",
     "@types/react": "19.1.8",
+    "daisyui": "^5.0.46",
     "eslint": "^8",
     "eslint-config-next": "15.0.4",
     "postcss": "^8",
