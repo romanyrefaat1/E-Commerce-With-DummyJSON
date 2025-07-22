@@ -4,6 +4,55 @@
   themes: corporate --default;
 }
 
+/* Custom theme configuration */
+@theme {
+  /* Font families */
+  --font-family-title: var(--font-playfair), serif;
+  --font-family-content: var(--font-inter), sans-serif;
+  --font-family-heading: var(--font-playfair), serif;
+
+  /* Border radius - using DaisyUI variables */
+  --radius-lg: var(--rounded-btn);
+  --radius-md: calc(var(--rounded-btn) - 2px);
+  --radius-sm: calc(var(--rounded-btn) - 4px);
+
+  /* Colors mapped from DaisyUI */
+  --color-background: hsl(var(--b1));
+  --color-foreground: hsl(var(--bc));
+
+  --color-card: hsl(var(--b1));
+  --color-card-foreground: hsl(var(--bc));
+
+  --color-popover: hsl(var(--b1));
+  --color-popover-foreground: hsl(var(--bc));
+
+  --color-primary: hsl(var(--p));
+  --color-primary-foreground: hsl(var(--pc));
+
+  --color-secondary: hsl(var(--s));
+  --color-secondary-foreground: hsl(var(--sc));
+
+  --color-muted: hsl(var(--b2));
+  --color-muted-foreground: hsl(var(--bc));
+
+  --color-accent: hsl(var(--a));
+  --color-accent-foreground: hsl(var(--ac));
+
+  --color-destructive: hsl(var(--er));
+  --color-destructive-foreground: hsl(var(--erc));
+
+  --color-border: hsl(var(--b3));
+  --color-input: hsl(var(--b3));
+  --color-ring: hsl(var(--p));
+
+  /* Chart colors */
+  --color-chart-1: hsl(var(--in));
+  --color-chart-2: hsl(var(--su));
+  --color-chart-3: hsl(var(--wa));
+  --color-chart-4: hsl(var(--er));
+  --color-chart-5: hsl(var(--s));
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -22,6 +71,7 @@
   }
 }
 
+/* Your existing font styles */
 h1,
 h2,
 h3,
