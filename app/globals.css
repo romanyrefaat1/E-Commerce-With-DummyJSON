@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @plugin "daisyui" {
-  themes: corporate --default;
+  themes: white --default;
 }
 
 /* Custom theme configuration */
@@ -14,6 +14,8 @@
   --font-family-title: var(--font-playfair), serif; /* Use: font-title */
   --font-family-content: var(--font-inter), sans-serif; /* Use: font-content */
   --font-family-heading: var(--font-playfair), serif; /* Use: font-heading */
+  --font-family-playfair: "Playfair Display", serif;
+  --font-family-inter: "Inter", sans-serif;
 
   /* ============================= */
   /* Border Radius                 */
@@ -23,49 +25,52 @@
   --radius-sm: calc(var(--rounded-btn) - 4px); /* Use: rounded-sm */
 
   /* ============================= */
-  /* Colors                        */
+  /* Colors - Black, White & Grey  */
   /* ============================= */
-  --color-background: hsl(var(--b1)); /* Use: bg-background */
-  --color-secondary-background: hsl(0 0% 95%); /* Use: bg-background */
-  --color-foreground: hsl(var(--bc)); /* Use: text-foreground */
+  --color-background: hsl(0 0% 100%); /* Pure white */
+  --color-secondary-background: hsl(0 0% 98%); /* Off-white */
+  --color-foreground: hsl(0 0% 9%); /* Near black */
 
-  --color-card: hsl(var(--b1)); /* Use: bg-card */
-  --color-card-foreground: hsl(var(--bc)); /* Use: text-card-foreground */
+  --color-card: hsl(0 0% 100%); /* White cards */
+  --color-card-foreground: hsl(0 0% 9%); /* Near black text */
 
-  --color-popover: hsl(var(--b1)); /* Use: bg-popover */
-  --color-popover-foreground: hsl(var(--bc)); /* Use: text-popover-foreground */
+  --color-popover: hsl(0 0% 100%); /* White popover */
+  --color-popover-foreground: hsl(0 0% 9%); /* Near black text */
 
-  --color-primary: hsl(var(--p)); /* Use: bg-primary or text-primary */
-  --color-primary-foreground: hsl(var(--pc)); /* Use: text-primary-foreground */
+  --color-primary: hsl(0 0% 0%); /* Pure black primary */
+  --color-primary-foreground: hsl(0 0% 100%); /* White text on black */
 
-  --color-secondary: hsl(var(--s)); /* Use: bg-secondary */
-  --color-secondary-foreground: hsl(
-    var(--sc)
-  ); /* Use: text-secondary-foreground */
+  --color-secondary: hsl(0 0% 85%); /* Light grey secondary */
+  --color-secondary-foreground: hsl(0 0% 15%); /* Dark grey text */
 
-  --color-muted: hsl(var(--b2)); /* Use: bg-muted */
-  --color-muted-foreground: hsl(var(--bc)); /* Use: text-muted-foreground */
+  --color-muted: hsl(0 0% 96%); /* Very light grey */
+  --color-muted-foreground: hsl(0 0% 45%); /* Medium grey */
 
-  --color-accent: hsl(var(--a)); /* Use: bg-accent */
-  --color-accent-foreground: hsl(var(--ac)); /* Use: text-accent-foreground */
+  --color-accent: hsl(0 0% 20%); /* Dark grey accent */
+  --color-accent-foreground: hsl(0 0% 98%); /* Off-white text */
 
-  --color-destructive: hsl(var(--er)); /* Use: bg-destructive */
-  --color-destructive-foreground: hsl(
-    var(--erc)
-  ); /* Use: text-destructive-foreground */
+  --color-destructive: hsl(0 0% 25%); /* Dark grey for destructive */
+  --color-destructive-foreground: hsl(0 0% 100%); /* White text */
 
-  --color-border: hsl(var(--b3)); /* Use: border-border */
-  --color-input: hsl(var(--b3)); /* Use: bg-input */
-  --color-ring: hsl(var(--p)); /* Use: ring-ring */
+  --color-border: hsl(0 0% 90%); /* Light grey borders */
+  --color-input: hsl(0 0% 96%); /* Very light grey inputs */
+  --color-ring: hsl(0 0% 0%); /* Black focus ring */
 
   /* ============================= */
-  /* Chart Colors                  */
+  /* Chart Colors - Grey Variants  */
   /* ============================= */
-  --color-chart-1: hsl(var(--in)); /* Use: bg-chart-1 */
-  --color-chart-2: hsl(var(--su)); /* Use: bg-chart-2 */
-  --color-chart-3: hsl(var(--wa)); /* Use: bg-chart-3 */
-  --color-chart-4: hsl(var(--er)); /* Use: bg-chart-4 */
-  --color-chart-5: hsl(var(--s)); /* Use: bg-chart-5 */
+  --color-chart-1: hsl(0 0% 20%); /* Dark grey */
+  --color-chart-2: hsl(0 0% 40%); /* Medium-dark grey */
+  --color-chart-3: hsl(0 0% 60%); /* Medium grey */
+  --color-chart-4: hsl(0 0% 75%); /* Light grey */
+  --color-chart-5: hsl(0 0% 85%); /* Very light grey */
+
+  /* ============================= */
+  /* Animation Keyframes           */
+  /* ============================= */
+  --animate-fadeInUp: fadeInUp 0.6s ease-out;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-loading: loading 1.5s infinite;
 }
 
 /*
@@ -82,7 +87,16 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+    border-color: var(--color-border);
+  }
+
+  /* Font family utilities */
+  .font-playfair {
+    font-family: var(--font-family-playfair);
+  }
+
+  .font-inter {
+    font-family: var(--font-family-inter);
   }
 }
 
@@ -98,6 +112,7 @@
   h5,
   h6,
   p,
+  span,
   button {
     overflow: hidden;
     height: fit-content;
@@ -109,216 +124,556 @@
   h4,
   h5,
   h6 {
-    @apply text-foreground;
+    color: var(--color-foreground);
   }
 
   p {
-    @apply text-secondary;
+    color: hsl(0 0% 25%); /* Dark grey for body text */
   }
 
   /* Hero Headlines */
   h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
-    @apply font-bold leading-[1.1] tracking-tight;
-    @apply mb-4 sm:mb-6 lg:mb-8;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(1.875rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    font-family: var(--font-family-playfair);
   }
 
   /* Section Headers */
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
-    @apply font-semibold leading-[1.2] tracking-tight;
-    @apply mb-3 sm:mb-4 lg:mb-6;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: clamp(0.75rem, 2.5vw, 1.5rem);
+    font-family: var(--font-family-playfair);
   }
 
   /* Subsection Headers */
   h3 {
-    @apply text-xl sm:text-2xl md:text-3xl;
-    @apply font-semibold leading-[1.3];
-    @apply mb-3 sm:mb-4;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    font-family: var(--font-family-playfair);
   }
 
   /* Card Headers */
   h4 {
-    @apply text-lg sm:text-xl md:text-2xl;
-    @apply font-medium leading-[1.3];
-    @apply mb-2 sm:mb-3;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-family: var(--font-family-playfair);
   }
 
   /* Minor Headers */
   h5 {
-    @apply text-base sm:text-lg;
-    @apply font-medium leading-[1.4];
-    @apply mb-2;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-playfair);
   }
 
   /* Labels */
   h6 {
-    @apply text-sm sm:text-base;
-    @apply font-medium leading-[1.4] tracking-wide uppercase;
-    @apply mb-2;
-    font-family: var(--font-playfair), serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-playfair);
   }
 
   /* Body Text */
   p {
-    @apply text-base sm:text-lg;
-    @apply leading-[1.6];
-    @apply mb-4 sm:mb-6;
-    font-family: var(--font-inter), sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
+    font-family: var(--font-family-inter);
   }
 
   /* Small Text */
   small {
-    @apply text-sm leading-[1.4];
-    font-family: var(--font-inter), sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    font-family: var(--font-family-inter);
   }
 
   /* Lists */
   li {
-    @apply text-base sm:text-lg leading-[1.6];
-    @apply mb-2;
-    font-family: var(--font-inter), sans-serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-family-inter);
   }
 
   /* Links */
   a {
-    @apply text-primary underline-offset-4;
-    @apply hover:underline transition-colors duration-200;
-    font-family: var(--font-inter), sans-serif;
+    text-underline-offset: 4px;
+    transition: color 200ms, text-decoration 200ms;
+    font-family: var(--font-family-inter);
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   /* Form Elements */
   input,
   textarea,
   select {
-    @apply px-3 py-2 sm:px-4 sm:py-3;
-    @apply text-base leading-[1.5];
-    @apply rounded-md border border-border;
-    @apply transition-colors duration-200;
-    font-family: var(--font-inter), sans-serif;
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: colors 200ms;
+    font-family: var(--font-family-inter);
   }
 
   label {
-    @apply text-sm sm:text-base font-medium;
-    @apply mb-2 block;
-    font-family: var(--font-inter), sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-family: var(--font-family-inter);
   }
 
   /* Table Elements */
   td,
   th {
-    @apply text-sm sm:text-base;
-    @apply px-3 py-2 sm:px-4 sm:py-3;
-    font-family: var(--font-inter), sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.75rem, 2vw, 1rem);
+    font-family: var(--font-family-inter);
   }
 
   th {
-    @apply font-semibold;
-  }
-
-  /* Navigation */
-  nav a {
-    @apply text-sm sm:text-base font-medium;
-    @apply transition-colors duration-200 hover:text-primary;
-    font-family: var(--font-inter), sans-serif;
+    font-weight: 600;
   }
 
   /* Buttons */
   button {
-    @apply font-medium transition-all duration-200;
-    @apply cursor-pointer;
-    font-family: var(--font-inter), sans-serif;
+    font-weight: 500;
+    transition: all 200ms;
+    cursor: pointer;
+    font-family: var(--font-family-inter);
   }
 
   /* General Reset */
   body,
   *,
   :root {
-    @apply box-border m-0 p-0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color-foreground);
     overflow-x: hidden;
   }
 
   body,
   div,
   span {
-    font-family: var(--font-inter), sans-serif;
+    font-family: var(--font-family-inter);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 /* ============================= */
-/* Layout Components             */
+/* Custom Keyframes              */
 /* ============================= */
 
-.l-container {
-  @apply w-screen h-screen px-2 py-2 box-border max-w-6xl mx-auto;
-  @apply w-screen sm:px-3 sm:py-3 md:px-4 md:py-4 lg:px-5 lg:py-5 xl:px-6 xl:py-6;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ============================= */
-/* Utility Classes               */
-/* ============================= */
-
-.text-lead {
-  @apply text-lg sm:text-xl md:text-2xl;
-  @apply leading-[1.5] mb-6 sm:mb-8;
-  font-family: var(--font-inter), sans-serif;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.btn-primary {
-  @apply px-6 py-3 sm:px-8 sm:py-4;
-  @apply text-base sm:text-lg font-semibold;
-  @apply rounded-lg shadow-lg hover:shadow-xl;
-  @apply transition-all duration-200;
-}
-
-.btn-secondary {
-  @apply px-4 py-2 sm:px-6 sm:py-3;
-  @apply text-sm sm:text-base font-medium;
-  @apply rounded-md transition-all duration-200;
-}
-
-.card {
-  @apply p-4 sm:p-6 md:p-8;
-  @apply rounded-lg shadow-sm hover:shadow-md;
-  @apply transition-shadow duration-200;
-}
-
-.section {
-  @apply w-screen h-screen py-12 sm:py-16 md:py-20 lg:py-24;
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* ============================= */
-/* Ecommerce Components          */
+/* Custom Components & Utilities */
 /* ============================= */
 
-.product-title {
-  @apply text-lg sm:text-xl md:text-2xl;
-  @apply font-semibold leading-[1.2] mb-2 sm:mb-3;
-  font-family: var(--font-playfair), serif;
+@layer components {
+  /* Layout Components */
+  .l-container {
+    width: 100vw;
+    height: 100vh;
+    padding: clamp(0.5rem, 2vw, 1.5rem);
+    box-sizing: border-box;
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Typography Utilities */
+  .text-lead {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    line-height: 1.5;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    font-family: var(--font-family-inter);
+    color: hsl(0 0% 30%); /* Medium grey for lead text */
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transition: all 200ms;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-secondary {
+    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: all 200ms;
+  }
+
+  .btn-primary-enhanced {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border: none;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transform: scale(1);
+    transition: all 200ms;
+  }
+
+  .btn-primary-enhanced:hover {
+    background-color: hsl(0 0% 15%); /* Slightly lighter black on hover */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: scale(1.05);
+  }
+
+  .btn-outline-enhanced {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transform: scale(1);
+    transition: all 200ms;
+  }
+
+  .btn-outline-enhanced:hover {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    transform: scale(1.05);
+  }
+
+  .btn-hover-scale {
+    transition: transform 200ms ease;
+  }
+
+  .btn-hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Card Styles */
+  .card {
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    transition: box-shadow 200ms;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .card-enhanced {
+    transition: all 300ms;
+  }
+
+  .card-enhanced:hover {
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    transform: translateY(-4px);
+  }
+
+  .card-enhanced:hover .card-image {
+    transform: scale(1.1);
+  }
+
+  .card-image {
+    transition: transform 500ms;
+  }
+
+  /* Section Layout */
+  .section {
+    width: 100vw;
+    height: 100vh;
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+
+  /* Product Components */
+  .product-title {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-family: var(--font-family-playfair);
+  }
+
+  .price {
+    font-size: clamp(1.25rem, 3vw, 1.875rem);
+    font-weight: 700;
+    font-family: var(--font-family-inter);
+    color: var(--color-foreground);
+  }
+
+  .price-small {
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    font-family: var(--font-family-inter);
+    color: var(--color-foreground);
+  }
+
+  .product-description {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    line-height: 1.5;
+    color: var(--color-muted-foreground);
+    font-family: var(--font-family-inter);
+  }
+
+  .review-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-family: var(--font-family-inter);
+    color: var(--color-muted-foreground);
+  }
+
+  /* Product Card Effects */
+  .product-card {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+
+  .product-image {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animation Classes */
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-animation:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .float-animation:nth-child(3) {
+    animation-delay: 1s;
+  }
+
+  .float-animation:nth-child(4) {
+    animation-delay: 1.5s;
+  }
+
+  /* GSAP Animation Classes */
+  .gsap-fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .gsap-fade-in {
+    opacity: 0;
+  }
+
+  .gsap-scale {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .gsap-slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  .gsap-slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  /* Effects */
+  .hover-lift {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Loading Skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-muted) 25%, var(--color-border) 50%, var(--color-muted) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  /* Focus Styles */
+  .focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary);
+  }
+
+  .focus-visible:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Custom Checkbox */
+  .checkbox-custom {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid hsl(0 0% 70%);
+    border-radius: 0.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all 200ms ease;
+  }
+
+  .checkbox-custom:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .checkbox-custom:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-primary-foreground);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
 }
 
-.price {
-  @apply text-xl sm:text-2xl md:text-3xl font-bold;
-  font-family: var(--font-inter), sans-serif;
+/* ============================= */
+/* Scrollbar Styles              */
+/* ============================= */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.price-small {
-  @apply text-lg sm:text-xl font-semibold;
-  font-family: var(--font-inter), sans-serif;
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
 }
 
-.product-description {
-  @apply text-sm sm:text-base leading-[1.5];
-  @apply text-muted-foreground;
-  font-family: var(--font-inter), sans-serif;
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 60%);
+  border-radius: 3px;
 }
 
-.review-text {
-  @apply text-sm leading-[1.5];
-  font-family: var(--font-inter), sans-serif;
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 0% 45%);
+}
+
+/* ============================= */
+/* Global Transitions             */
+/* ============================= */
+
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ============================= */
+/* Selection & Accessibility     */
+/* ============================= */
+
+::selection {
+  background-color: hsl(0 0% 20%);
+  color: hsl(0 0% 100%);
+}
+
+/* ============================= */
+/* Responsive Utilities          */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* ============================= */
+/* Print Styles                  */
+/* ============================= */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }

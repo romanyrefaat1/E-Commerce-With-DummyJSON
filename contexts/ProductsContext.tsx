@@ -119,7 +119,6 @@ export default function ProductsProvider({ children }) {
       return { error: `Unknown error fetching product data: ${error.message}` };
     }
   };
-  
 
   const getProductsDataByProductsIds = async (arrayOfIds) => {
     if (!Array.isArray(arrayOfIds) || arrayOfIds.length === 0) return { data: [], error: null };
