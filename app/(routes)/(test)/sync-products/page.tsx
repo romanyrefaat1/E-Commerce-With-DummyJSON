@@ -100,7 +100,7 @@ export default function SyncProductsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 p-8">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
           {/* Header */}

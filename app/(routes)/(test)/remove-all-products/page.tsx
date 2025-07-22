@@ -43,11 +43,11 @@ export default function DeleteAllProductsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 p-4">
+    <div className="min-h-screen bg-linear-to-br from-red-50 to-orange-50 p-4">
       <div className="max-w-6xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl border border-red-100">
           {/* Header */}
-          <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-8 rounded-t-2xl">
+          <div className="bg-linear-to-r from-red-600 to-orange-600 text-white p-8 rounded-t-2xl">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-white/20 rounded-xl">
                 <Trash2 className="w-8 h-8" />
@@ -59,7 +59,7 @@ export default function DeleteAllProductsPage() {
             </div>
             <div className="bg-red-500/30 border border-red-400/50 rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 text-yellow-300 flex-shrink-0 mt-0.5" />
+                <AlertTriangle className="w-5 h-5 text-yellow-300 shrink-0 mt-0.5" />
                 <div className="text-sm">
                   <p className="font-medium text-yellow-100">⚠️ Warning: This action is irreversible</p>
                   <p className="text-red-100 mt-1">All products in your DodoPayments account will be permanently deleted with a 3-second delay between each deletion.</p>
@@ -162,7 +162,7 @@ export default function DeleteAllProductsPage() {
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <div className="flex items-start gap-3">
-                  <XCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
+                  <XCircle className="w-6 h-6 text-red-500 shrink-0" />
                   <div>
                     <h3 className="font-semibold text-red-800 mb-2">Error occurred</h3>
                     <p className="text-red-700 mb-4">{error}</p>

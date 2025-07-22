@@ -66,8 +66,6 @@ module.exports = {
   plugins: [require("tailwindcss-animate"), require("daisyui")],
   daisyui: {
     themes: ["corporate"],
-    // Optional:
-    // darkTheme: "corporate", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element
     styled: true, // include daisyUI colors and design decisions for all components
   },
